@@ -1,37 +1,65 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using TMPro;
+using UnityEngine;
 
+namespace NodeCanvas.Tasks.Actions
+{
 
-namespace NodeCanvas.Tasks.Actions {
+    public class WebAT : ActionTask
+    {
 
-	public class WebAT : ActionTask {
+        public BBParameter<GameObject> targetWeb;
+        public BBParameter<TextMeshPro> webPrompt;
+        Blackboard flyBoard;
+        public float webNum;
+        public float actSpeed;
+        //Use for initialization. This is called only once in the lifetime of the task.
+        //Return null if init was successfull. Return an error string otherwise
+        protected override string OnInit()
+        {
+            return null;
+        }
 
-		//Use for initialization. This is called only once in the lifetime of the task.
-		//Return null if init was successfull. Return an error string otherwise
-		protected override string OnInit() {
-			return null;
-		}
+        //This is called once each time the task is enabled.
+        //Call EndAction() to mark the action as finished, either in success or failure.
+        //EndAction can be called from anywhere.
+        protected override void OnExecute()
+        {
+            flyBoard = targetWeb.value.GetComponent<Blackboard>();
+            webNum = flyBoard.GetVariableValue<float>("webAmount");
+            //EndAction(true);
+        }
 
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
-		protected override void OnExecute() {
-			EndAction(true);
-		}
+        //Called once per frame while the action is active.
+        protected override void OnUpdate()
+        {
+            webPrompt.value.text = ("Hold W to Web");
+            webPrompt.value.transform.position = new Vector3(1, 1, 2);
+            if (Input.GetKey(KeyCode.W))
+            {
+                
+                webNum += actSpeed * Time.deltaTime;
+            }
 
-		//Called once per frame while the action is active.
-		protected override void OnUpdate() {
-			
-		}
+            if (webNum >= 100)
+            {               
+                webPrompt.value.transform.position = new Vector3(1, 0, 2);
+                flyBoard.SetVariableValue("webAmount", webNum);
+                EndAction(true);
+            }
+        }
 
-		//Called when the task is disabled.
-		protected override void OnStop() {
-			
-		}
+        //Called when the task is disabled.
+        protected override void OnStop()
+        {
 
-		//Called when the task is paused.
-		protected override void OnPause() {
-			
-		}
-	}
+        }
+
+        //Called when the task is paused.
+        protected override void OnPause()
+        {
+
+        }
+    }
 }

@@ -56,7 +56,7 @@ namespace NodeCanvas.Tasks.Actions {
                 }
 				
 			}
-			if (weakLink.value.GetComponent<WebHealth>().curHealth < 100)
+			if (weakLink.value.GetComponent<WebHealth>().curHealth < 115)
 			{
 				EndAction(true);
 			}
