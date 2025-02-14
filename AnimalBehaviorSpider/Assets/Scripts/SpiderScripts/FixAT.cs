@@ -25,7 +25,11 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			targetFix.value.GetComponent<WebHealth>().curHealth += fixSpeed * Time.deltaTime;
+			if (Input.GetKey(KeyCode.Space))
+			{
+                targetFix.value.GetComponent<WebHealth>().curHealth += fixSpeed * Time.deltaTime;
+            }
+			
 			if (targetFix.value.GetComponent<WebHealth>().curHealth >= targetFix.value.GetComponent<WebHealth>().maxHealth)
 			{
 				targetFix.value.GetComponent<WebHealth>().webWeaken = false;

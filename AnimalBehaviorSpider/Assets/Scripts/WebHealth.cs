@@ -31,10 +31,10 @@ public class WebHealth : MonoBehaviour
         if (webTime <= 0 && webWeaken == false)
         {
             webBreak = Random.Range(1, 100);
-            webTime = 1;
+            webTime = 2;
         }
         
-        if (webBreak <= 5)
+        if (webBreak <= 3)
         {
             webWeaken = true;
         }
