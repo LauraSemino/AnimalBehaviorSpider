@@ -34,12 +34,16 @@ namespace NodeCanvas.Tasks.Actions
         //Called once per frame while the action is active.
         protected override void OnUpdate()
         {
-            webPrompt.value.text = ("Hold W to Web");
+            
             webPrompt.value.transform.position = new Vector3(1, 1, 2);
             if (Input.GetKey(KeyCode.W))
             {
-                
+                webPrompt.value.text = ("Webbing: " + Mathf.RoundToInt(webNum) + "/" + 100);
                 webNum += actSpeed * Time.deltaTime;
+            }
+            else
+            {
+                webPrompt.value.text = ("Hold W to Web");
             }
 
             if (webNum >= 100)

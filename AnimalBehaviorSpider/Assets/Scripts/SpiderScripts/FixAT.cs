@@ -26,11 +26,16 @@ namespace NodeCanvas.Tasks.Actions {
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-			inputPrompt.value.text = ("Hold Space to Fix");
+			
 			inputPrompt.value.transform.position = new Vector3(1,1,2);
 			if (Input.GetKey(KeyCode.Space))
 			{
                 targetFix.value.GetComponent<WebHealth>().curHealth += fixSpeed * Time.deltaTime;
+                inputPrompt.value.text = ("Web Health: " + Mathf.RoundToInt(targetFix.value.GetComponent<WebHealth>().curHealth) + "/" + targetFix.value.GetComponent<WebHealth>().maxHealth);
+            }
+			else
+			{
+                inputPrompt.value.text = ("Hold Space to Fix");
             }
 			
 			if (targetFix.value.GetComponent<WebHealth>().curHealth >= targetFix.value.GetComponent<WebHealth>().maxHealth)

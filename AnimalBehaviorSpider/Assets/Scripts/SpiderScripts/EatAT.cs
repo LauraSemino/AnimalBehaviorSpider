@@ -1,6 +1,7 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -33,12 +34,16 @@ namespace NodeCanvas.Tasks.Actions {
         //Called once per frame while the action is active.
         protected override void OnUpdate()
         {
-            webPrompt.value.text = ("Hold E to Eat");
+            
             webPrompt.value.transform.position = new Vector3(1, 1, 2);
             if (Input.GetKey(KeyCode.E))
             {
-
+                webPrompt.value.text = ("Eating: " + Mathf.RoundToInt(webNum) + "/" + 100);
                 webNum += actSpeed * Time.deltaTime;
+            }
+            else
+            {
+                webPrompt.value.text = ("Hold E to Eat");
             }
 
             if (webNum >= 100)
