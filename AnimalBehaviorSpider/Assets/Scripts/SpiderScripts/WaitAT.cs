@@ -1,7 +1,9 @@
+using JetBrains.Annotations;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace NodeCanvas.Tasks.Actions {
 	
@@ -11,8 +13,9 @@ namespace NodeCanvas.Tasks.Actions {
         public BBParameter<GameObject> webBR;
         public BBParameter<GameObject> webBL;
 
-		
 
+       
+        public float lowestHealth;
 		public WebHealth[] webArray;
 		public BBParameter<GameObject> weakLink;
         //Use for initialization. This is called only once in the lifetime of the task.
@@ -28,7 +31,10 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
 
-			webArray = new WebHealth[4];
+            lowestHealth = 1000f;
+            webArray = new WebHealth[4];
+
+           
             //EndAction(true);
         }
 
@@ -39,8 +45,8 @@ namespace NodeCanvas.Tasks.Actions {
             webArray[1] = webTL.value.GetComponent<WebHealth>();
             webArray[2] = webBR.value.GetComponent<WebHealth>();
             webArray[3] = webBL.value.GetComponent<WebHealth>();
-            float lowestHealth = 1000f;
-            for (int i = 0;i < webArray.Length-1; i++)
+            
+            for (int i = 0;i < webArray.Length; i++)
 			{
 				if (webArray[i].curHealth < lowestHealth)
 				{
@@ -54,6 +60,7 @@ namespace NodeCanvas.Tasks.Actions {
 			{
 				EndAction(true);
 			}
+			
 		}
 
 		//Called when the task is disabled.

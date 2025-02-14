@@ -10,6 +10,7 @@ namespace NodeCanvas.Tasks.Actions {
 	public class SearchAT : ActionTask {
 		public BBParameter<GameObject> targetFix;
         private NavMeshAgent navAgent;
+		
 		public Vector3 distance;
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
