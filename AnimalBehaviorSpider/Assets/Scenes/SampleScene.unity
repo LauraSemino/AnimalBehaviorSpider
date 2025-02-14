@@ -1666,6 +1666,10 @@ MonoBehaviour:
   maxHealth: 120
   weakSpeed: 2
   webWeaken: 0
+  webBreak: 0
+  webTime: 0
+  healthy: {fileID: 2100000, guid: cab4c09c924711b44891076e84d67894, type: 2}
+  damaged: {fileID: 2100000, guid: ad3f6cefa25b08448b6b8d9c1a38ec8b, type: 2}
 --- !u!1 &754962174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,6 +2098,10 @@ MonoBehaviour:
   maxHealth: 120
   weakSpeed: 2
   webWeaken: 0
+  webBreak: 0
+  webTime: 0
+  healthy: {fileID: 2100000, guid: cab4c09c924711b44891076e84d67894, type: 2}
+  damaged: {fileID: 2100000, guid: ad3f6cefa25b08448b6b8d9c1a38ec8b, type: 2}
 --- !u!1 &1067861421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2218,6 +2226,10 @@ MonoBehaviour:
   maxHealth: 120
   weakSpeed: 2
   webWeaken: 0
+  webBreak: 0
+  webTime: 0
+  healthy: {fileID: 2100000, guid: cab4c09c924711b44891076e84d67894, type: 2}
+  damaged: {fileID: 2100000, guid: ad3f6cefa25b08448b6b8d9c1a38ec8b, type: 2}
 --- !u!1 &1075333535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,6 +3587,10 @@ MonoBehaviour:
   maxHealth: 120
   weakSpeed: 2
   webWeaken: 0
+  webBreak: 0
+  webTime: 0
+  healthy: {fileID: 2100000, guid: cab4c09c924711b44891076e84d67894, type: 2}
+  damaged: {fileID: 2100000, guid: ad3f6cefa25b08448b6b8d9c1a38ec8b, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

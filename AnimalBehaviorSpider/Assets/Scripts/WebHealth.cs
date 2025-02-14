@@ -11,6 +11,11 @@ public class WebHealth : MonoBehaviour
 
     public float webBreak;
     public float webTime;
+
+    public Material healthy;
+    public Material damaged;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +28,7 @@ public class WebHealth : MonoBehaviour
     void Update()
     {
         webTime -= Time.deltaTime;
-        if (webTime <= 0)
+        if (webTime <= 0 && webWeaken == false)
         {
             webBreak = Random.Range(1, 100);
             webTime = 1;
@@ -35,7 +40,12 @@ public class WebHealth : MonoBehaviour
         }
         if (webWeaken == true)
         {
+            GetComponent<MeshRenderer>().material = damaged;
             curHealth -= weakSpeed * Time.deltaTime;
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().material = healthy;
         }
         
     }
